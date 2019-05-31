@@ -1,10 +1,21 @@
 // from data.js
-var tableData = data;
+const tableData = data;
 
 // YOUR CODE HERE!
 //reference table body
-var tbody = d3.select("tbody");
-var submit = d3.select("#filter-btn");
+const tbody = d3.select("tbody");
+const submit = d3.select("#filter-btn");
+
+// All data showing at default
+tableData.forEach(element => {
+    let row = tbody.append('tr');
+    Object.entries(element).forEach(([key, value]) => {
+        let cell = row.append('td');
+        cell.text(value);
+    })
+});
+
+
 
 submit.on("click", function() {
 
@@ -12,22 +23,23 @@ submit.on("click", function() {
     d3.event.preventDefault();
 
     // select input element
-    var inputElement = d3.select("#datetime");
+    let inputElement = d3.select("#datetime");
     
     //get value property of input element
-    var inputValue = inputElement.property("value");
+    let inputValue = inputElement.property("value");
 
     console.log(inputValue);
     console.log(tableData);
 
-    var filteredData = tableData.filter(dates => dates.datetime === inputValue);
+    let filteredData = tableData.filter(dates => dates.datetime === inputValue);
     console.log(filteredData);
+    tbody.text('')
 
     //show filtered data in table
     filteredData.forEach(element => {
-        var row = tbody.append('tr');
+        let row = tbody.append('tr');
         Object.entries(element).forEach(([key, value]) => {
-            var cell = row.append('td');
+            let cell = row.append('td');
             cell.text(value);
         })
     });

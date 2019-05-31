@@ -1,6 +1,6 @@
 * {
   box-sizing: border-box;
-  font-family: Ubuntu, sans-serif;
+  font-family: American Typewriter, sans-serif;
 }
 
 html,
@@ -49,7 +49,8 @@ body {
   bottom: 5px;
   left: 150px;
   width: 35px;
-  color: white;
+  color: rgb(71, 240, 169);
+
 }
 
 /* Adding styles to the aside and filter form */
